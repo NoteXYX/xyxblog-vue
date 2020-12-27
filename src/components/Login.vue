@@ -29,7 +29,7 @@
             password: this.loginForm.password
           })
           .then(successResponse => {
-            if (successResponse.data.code === 200) {
+            if (successResponse.data.code === "SUCCESS") {
               this.$router.replace({path: '/index'})
             }
           })
