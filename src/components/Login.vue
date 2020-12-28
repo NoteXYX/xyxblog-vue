@@ -11,7 +11,7 @@
     </el-form-item>
 
     <el-form-item style="width: 100%">
-      <el-button type="primary" style="width: 100%;background: #505458;border: none" v-on:click="login">登录</el-button>
+      <el-button type="primary" style="width: 100%;background: #29963d;border: none" v-on:click="login">登录</el-button>
     </el-form-item>
   </el-form>
   <!-- <el-card>
@@ -70,3 +70,23 @@
     }
   }
 </script>
+
+<style>
+  .login-container {
+    border-radius: 15px;
+    background-clip: padding-box;
+    margin: 90px auto;
+    width: 350px;
+    padding: 35px 35px 15px 35px;
+    background: #fff;
+    border: 1px solid #eaeaea;
+    box-shadow: 0 0 25px #cac6c6;
+  }
+
+  .login_title {
+    margin: 0px auto 40px auto;
+    text-align: center;
+    color: #505458;
+  }
+
+</style>
