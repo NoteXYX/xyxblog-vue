@@ -5,7 +5,7 @@
       <el-form-item>
         <el-input type="text" v-model="loginForm.userName" auto-complete="off" placeholder="账号"></el-input>
       </el-form-item>
-      <div id="userNameTip" style="display:none; color:red">请输入用户名！</div>
+      <div id="userNameTip" style="display:none; color:red">{{msg}}</div>
       <el-form-item>
         <el-input type="password" v-model="loginForm.password" auto-complete="off" placeholder="密码"></el-input>
       </el-form-item>
@@ -27,7 +27,8 @@
           userName: '',
           password: ''
         },
-        responseResult: []
+        responseResult: [],
+        msg: ''
       }
     },
     methods: {
@@ -51,7 +52,7 @@
             if (successResponse.data.code === "SUCCESS") {
               this.$router.replace({path: '/index'})
             } else {
-
+              
             }
           })
           .catch(failResponse => {
@@ -65,9 +66,9 @@
   .login-container {
     border-radius: 15px;
     background-clip: padding-box;
-    margin: 90px auto;
+    margin: 200px auto;
     width: 350px;
-    padding: 35px 35px 15px 35px;
+    padding: 35px 45px 15px 45px;
     background: #fff;
     border: 1px solid #eaeaea;
     box-shadow: 0 0 25px #cac6c6;
