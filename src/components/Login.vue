@@ -8,8 +8,14 @@
       <el-form-item>
         <el-input type="password" v-model="loginForm.password" auto-complete="off" placeholder="密码"></el-input>
       </el-form-item>
-      <el-form-item style="width: 100%">
-        <el-button type="primary" style="width: 100%;background: #29963d;border: none" v-on:click="login">登录</el-button>
+      <!--
+      <div id="loginTip" hidden="true">
+        <el-alert ref="loginTipRef" :closable="false"  type="error" show-icon></el-alert>
+      </div>
+      -->
+      <el-alert v-bind:title="loginTipMessage" v-show="loginTipShow" :closable="false" type="error" show-icon></el-alert>
+      <el-form-item style="width: 100%;margin-top: 3%;">
+        <el-button type="primary" style="width: 70%;background: #29963d;border: none" v-on:click="login">登录</el-button>
       </el-form-item>
     </el-form>
   </body>
@@ -24,13 +30,16 @@
           userName: '',
           password: ''
         },
-        responseResult: []
+        responseResult: [],
+        loginTipMessage: '',
+        loginTipShow: false
       }
     },
     methods: {
       login () {
         var _this = this
         console.log(this.$store.state)
+        var loginTip = document.getElementById('loginTip')
         this.$axios
           .post('/login', {
             userName: this.loginForm.userName,
@@ -41,8 +50,17 @@
               _this.$store.commit('login', _this.loginForm)
               var path = this.$route.query.redirect
               this.$router.replace({path: path === '/' || path === undefined ? '/index' : path})
-            } else {
+              this.loginTipShow = false
+              //this.$refs.loginTipRef.v-show = false
+             // loginTip.hidden = true
 
+            } else {
+              this.loginTipShow = true
+              this.loginTipMessage = successResponse.data.message
+              //this.$refs.loginTipRef.v-show = true
+              //this.$refs.loginTipRef.$el.innerText = successResponse.data.message
+
+              //loginTip.childNodes[0].title = successResponse.data.message
             }
           })
           .catch(failResponse => {
