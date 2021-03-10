@@ -21,8 +21,8 @@
 
 <style scoped>
   .books-area {
-      width: 990px;
-      margin-left: auto;
-      margin-right: auto;
-    }
+    width: 990px;
+    margin-left: auto;
+    margin-right: auto;
+  }
 </style>

@@ -92,8 +92,8 @@
     background-size: cover;
     position: fixed;
   }
+
   body{
     margin: 0px;
   }
-
 </style>
