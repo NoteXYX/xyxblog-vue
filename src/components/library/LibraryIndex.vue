@@ -1,5 +1,5 @@
 <template>
-  <el-container>
+  <el-container style="background-color: #EAEAEA;">
     <el-aside style="width: 200px;margin-top: 20px">
       <switch></switch>
       <SideMenu></SideMenu>

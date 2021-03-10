@@ -4,6 +4,7 @@ import router from './router'
 import ElementUI from 'element-ui'
 import 'element-ui/lib/theme-chalk/index.css'
 import store from './store'
+import MenuIcon from 'vue-material-design-icons/Menu.vue';
 
 // 设置反向代理，前端请求默认发送到 http://localhost:8081/xyxblog
 var axios = require('axios')
@@ -13,6 +14,7 @@ Vue.prototype.$axios = axios
 Vue.config.productionTip = false
 
 Vue.use(ElementUI)
+Vue.component('menu-icon', MenuIcon);
 
 router.beforeEach((to, from, next) => {
   if (to.meta.requireAuth) {

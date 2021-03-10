@@ -8,14 +8,10 @@
       <el-form-item>
         <el-input type="password" v-model="loginForm.password" auto-complete="off" placeholder="密码"></el-input>
       </el-form-item>
-      <!--
-      <div id="loginTip" hidden="true">
-        <el-alert ref="loginTipRef" :closable="false"  type="error" show-icon></el-alert>
-      </div>
-      -->
       <el-alert v-bind:title="loginTipMessage" v-show="loginTipShow" :closable="false" type="error" show-icon></el-alert>
       <el-form-item style="width: 100%;margin-top: 3%;">
-        <el-button type="primary" style="width: 70%;background: #29963d;border: none" v-on:click="login">登录</el-button>
+        <el-button type="success" style="width: 70%;" v-on:click="login" round>登录</el-button>
+        <!-- <el-button type="primary" style="width: 70%;background: #29963d;border: none" v-on:click="login">登录</el-button> -->
       </el-form-item>
     </el-form>
   </body>

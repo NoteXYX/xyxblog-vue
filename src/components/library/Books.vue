@@ -1,6 +1,6 @@
 <template>
   <div>
-    <el-row style="height: 840px;">
+    <el-row style="height: 800px;">
       <!--<search-bar></search-bar>-->
       <el-tooltip effect="dark" placement="right"
                   v-for="item in books"
