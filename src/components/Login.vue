@@ -11,7 +11,6 @@
       <el-alert v-bind:title="loginTipMessage" v-show="loginTipShow" :closable="false" type="error" show-icon></el-alert>
       <el-form-item style="width: 100%;margin-top: 3%;">
         <el-button type="success" style="width: 70%;" v-on:click="login" round>登录</el-button>
-        <!-- <el-button type="primary" style="width: 70%;background: #29963d;border: none" v-on:click="login">登录</el-button> -->
       </el-form-item>
     </el-form>
   </body>
@@ -41,22 +40,15 @@
             userName: this.loginForm.userName,
             password: this.loginForm.password
           })
-          .then(successResponse => {
-            if (successResponse.data.code === "SUCCESS") {
+          .then(loginResponse => {
+            if (loginResponse.data.code === "SUCCESS") {
               _this.$store.commit('login', _this.loginForm)
               var path = this.$route.query.redirect
               this.$router.replace({path: path === '/' || path === undefined ? '/index' : path})
               this.loginTipShow = false
-              //this.$refs.loginTipRef.v-show = false
-             // loginTip.hidden = true
-
             } else {
               this.loginTipShow = true
-              this.loginTipMessage = successResponse.data.message
-              //this.$refs.loginTipRef.v-show = true
-              //this.$refs.loginTipRef.$el.innerText = successResponse.data.message
-
-              //loginTip.childNodes[0].title = successResponse.data.message
+              this.loginTipMessage = loginResponse.data.message
             }
           })
           .catch(failResponse => {
